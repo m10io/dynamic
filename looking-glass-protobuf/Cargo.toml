@@ -12,8 +12,8 @@ repository = "https://github.com/m10io/looking-glass"
 [dependencies]
 bytes = "1"
 looking-glass = { version = "0.1.0", path = "../looking-glass" }
-prost = "0.8"
-prost-types = "0.8"
+prost = "0.13.1"
+prost-types = "0.13.1"
 rustc-hash = "1.1"
 thiserror = "1.0.11"
 uuid = "0.8"
