@@ -39,6 +39,29 @@ where
 }
 
 impl<'val, 'ty> Value<'val, 'ty> {
+    pub fn inner_value_type(&self) -> String {
+        match self.0 {
+            ValueInner::U64(_) => "u64".to_string(),
+            ValueInner::U32(_) => "u32".to_string(),
+            ValueInner::U16(_) => "u16".to_string(),
+            ValueInner::U8(_) => "u8".to_string(),
+            ValueInner::I64(_) => "i64".to_string(),
+            ValueInner::I32(_) => "i32".to_string(),
+            ValueInner::I16(_) => "i16".to_string(),
+            ValueInner::I8(_) => "i8".to_string(),
+            ValueInner::F32(_) => "f32".to_string(),
+            ValueInner::F64(_) => "f64".to_string(),
+            ValueInner::Bool(_) => "bool".to_string(),
+            ValueInner::String(_) => "String".to_string(),
+            ValueInner::Str(_) => "str".to_string(),
+            ValueInner::Vec(_) => "Vec".to_string(),
+            ValueInner::Struct(_) => "Struct".to_string(),
+            ValueInner::Enum(_) => "Enum".to_string(),
+            ValueInner::Bytes(_) => "Bytes".to_string(),
+            ValueInner::Option(_) => "Option".to_string(),
+        }
+    }
+
     /// Creates a [`Value`] from a reflected [`Vec`]
     pub fn from_vec(s: &'val (dyn VecInstance<'ty> + 'ty)) -> Value<'val, 'ty> {
         Value(ValueInner::Vec(s))
